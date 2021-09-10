@@ -1,0 +1,67 @@
+Question 1 : Think about what could be going wrong with our calculation. Think about a better way to evaluate this data. 
+
+Answer :
+
+The dataset contains the various types of orders (Consumer and Business Orders)
+These Business Orders are Bulk Orders which are placed with total_items count of 2000
+A Normal Customer might not put an Order that has 2000 items.
+These are affecting the average order_amount we are concerned about.
+We can better evaluate the Data by filtering out these bulk orders which have an item_count of 2000.
+
+How did i comeup with 2000 ? => when we find Unique values of total_items we can see only 2, 1, 3, 2000, 4, 5, 6, 8
+So the Outlier here is 2000
+
+there are 17 Such Orders with total_items 2000 and order_amount 704000$
+
+
+
+
+Question 2 : What metric would you report for this dataset?
+
+Answer :
+
+We can get the better knowledge about consumer purchases if we exclude the bulk orders that are part of the dataset
+
+
+
+
+Question 3: What is its value?
+
+Answer :
+
+The new Average order value is 754.091913$
+
+
+
+
+Question 4 : How many orders were shipped by Speedy Express in total?
+
+Answer :
+
+SELECT COUNT(*) FROM Orders WHERE ShipperID = (Select ShipperID from Shippers WHERE ShipperName = "Speedy Express ");
+
+54
+
+
+
+Question 5 : What is the last name of the employee with the most orders?
+
+Answer : 
+
+
+SELECT COUNT(*),EmployeeID FROM Orders GROUP BY EmployeeID; //This gave me theEmployees Id with 4
+
+SELECT LastName FROM Employees WHERE EmployeeID=4;
+
+Peacock 
+
+
+Question 6 : c.	What product was ordered the most by customers in Germany?
+
+Answer :
+
+SELECT COUNT(*),ProductID FROM OrderDetails WHERE OrderID IN (SELECT OrderID FROM Orders WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE Country="Germany")) GROUP BY ProductID;
+
+SELECT ProductName FROM Products WHERE ProductID=31;
+
+Gorgonzola Telino 

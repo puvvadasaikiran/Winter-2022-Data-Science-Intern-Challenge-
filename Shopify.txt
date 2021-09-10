@@ -1,4 +1,4 @@
-Question 1 : Think about what could be going wrong with our calculation. Think about a better way to evaluate this data. 
+Question 1A : Think about what could be going wrong with our calculation. Think about a better way to evaluate this data. 
 
 Answer :
 
@@ -16,7 +16,7 @@ there are 17 Such Orders with total_items 2000 and order_amount 704000$
 
 
 
-Question 2 : What metric would you report for this dataset?
+Question 1B : What metric would you report for this dataset?
 
 Answer :
 
@@ -25,7 +25,7 @@ We can get the better knowledge about consumer purchases if we exclude the bulk 
 
 
 
-Question 3: What is its value?
+Question 1C: What is its value?
 
 Answer :
 
@@ -34,7 +34,7 @@ The new Average order value is 754.091913$
 
 
 
-Question 4 : How many orders were shipped by Speedy Express in total?
+Question 2A : How many orders were shipped by Speedy Express in total?
 
 Answer :
 
@@ -44,7 +44,7 @@ SELECT COUNT(*) FROM Orders WHERE ShipperID = (Select ShipperID from Shippers WH
 
 
 
-Question 5 : What is the last name of the employee with the most orders?
+Question 2B : What is the last name of the employee with the most orders?
 
 Answer : 
 
@@ -56,7 +56,7 @@ SELECT LastName FROM Employees WHERE EmployeeID=4;
 Peacock 
 
 
-Question 6 : c.	What product was ordered the most by customers in Germany?
+Question 2C :What product was ordered the most by customers in Germany?
 
 Answer :
 

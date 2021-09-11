@@ -49,7 +49,7 @@ Question 2B : What is the last name of the employee with the most orders?
 Answer : 
 
 
-SELECT COUNT(*),EmployeeID FROM Orders GROUP BY EmployeeID; //This gave me theEmployees Id with 4
+SELECT COUNT(*),EmployeeID FROM Orders GROUP BY EmployeeID ORDER BY COUNT(*) DESC; //This gave me theEmployees Id with 4
 
 SELECT LastName FROM Employees WHERE EmployeeID=4;
 
@@ -60,7 +60,7 @@ Question 2C :What product was ordered the most by customers in Germany?
 
 Answer :
 
-SELECT COUNT(*),ProductID FROM OrderDetails WHERE OrderID IN (SELECT OrderID FROM Orders WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE Country="Germany")) GROUP BY ProductID;
+SELECT COUNT(*),ProductID FROM OrderDetails WHERE OrderID IN (SELECT OrderID FROM Orders WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE Country="Germany")) GROUP BY ProductID ORDER BY COUNT(*) DESC;
 
 SELECT ProductName FROM Products WHERE ProductID=31;
 
